@@ -1,0 +1,17 @@
+# Hugo build output
+/public/
+.hugo_build.lock
+
+# Hugo generated resource directory
+/resources/
+
+# Hugo module dependencies
+/_vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/

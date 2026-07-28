@@ -1,0 +1,43 @@
+baseURL = 'https://<username>.github.io/my-blog/'
+locale = 'en-us'
+title = 'My Blog'
+theme = 'PaperMod'
+
+enableRobotsTXT = true
+paginate = 5
+
+[params]
+  [params.homeInfoParams]
+    Title = "Hello, I'm [Your Name]"
+    Content = "Welcome to my blog. I write about technology, programming, and software engineering."
+
+  socialIcons = [
+    { name = "github", url = "https://github.com/<username>" },
+  ]
+
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowToc = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowLastMod = false
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 20
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 30
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    noClasses = false
