@@ -5,101 +5,57 @@
         <span class="drawer-title">导航</span>
         <button class="drawer-close" id="drawer-close" aria-label="关闭菜单">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
+                <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
     </div>
-
-    {{- /* 导航菜单 */}}
     <ul class="drawer-menu">
         {{- $currentPage := . }}
         {{- range site.Menus.main }}
         {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
         {{- $page_url:= $currentPage.Permalink | absLangURL }}
-        <li>
-            <a href="{{ .URL | absLangURL }}"{{ if eq $menu_item_url $page_url }} class="active"{{ end }}>
-                {{- .Pre }}{{ .Name }}{{ .Post -}}
-            </a>
-        </li>
+        <li><a href="{{ .URL | absLangURL }}"{{ if eq $menu_item_url $page_url }} class="active"{{ end }}>{{ .Name }}</a></li>
         {{- end }}
     </ul>
-
     <hr class="drawer-divider">
-
-    {{- /* 侧边栏内容 */}}
     <div class="drawer-sidebar">
-        {{- /* 博主信息 */}}
         <div class="drawer-profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-            </svg>
-            <div>
-                <strong>{{ site.Params.author | default site.Title }}</strong>
-                <span>{{ site.Params.description | default "" }}</span>
-            </div>
+            {{- with resources.Get "head.jpg" }}
+                {{- $img := .Resize "72x72" }}
+                <img src="{{ $img.Permalink }}" alt="avatar" width="36" height="36">
+            {{- else }}
+                <img src="{{ "head.jpg" | absURL }}" alt="avatar" width="36" height="36">
+            {{- end }}
+            <div><strong>{{ site.Params.author | default site.Title }}</strong><span>{{ site.Params.description }}</span></div>
         </div>
-
-        {{- /* 最近文章 */}}
         <h4 class="drawer-section-title">📝 最近文章</h4>
         <ul class="drawer-posts">
             {{- range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-            <li>
-                <a href="{{ .Permalink }}"{{ if eq .Permalink $.Permalink }} class="active"{{ end }}>
-                    {{ .Title }}
-                    <small>{{ .Date.Format "01-02" }}</small>
-                </a>
-            </li>
+            <li><a href="{{ .Permalink }}"{{ if eq .Permalink $.Permalink }} class="active"{{ end }}>{{ .Title }}<small>{{ .Date.Format "01-02" }}</small></a></li>
             {{- end }}
         </ul>
-
-        {{- /* 标签 */}}
         {{- $tags := .Site.Taxonomies.tags }}
         {{- if $tags }}
         <h4 class="drawer-section-title">🏷️ 标签</h4>
         <div class="drawer-tags">
             {{- range first 15 $tags.ByCount }}
-            <a href="{{ .Page.Permalink }}">{{ .Page.Title }} <sup>{{ .Count }}</sup></a>
+            <a href="{{ .Page.Permalink }}">{{ .Page.Title }}<sup>{{ .Count }}</sup></a>
             {{- end }}
         </div>
         {{- end }}
-
-        {{- /* 归档 */}}
         {{- with site.GetPage "/archives" }}
         <a href="{{ .Permalink }}" class="drawer-archive-link">📂 文章归档 →</a>
         {{- end }}
     </div>
 </nav>
-
 <script>
 (function() {
-    var drawer = document.getElementById('drawer');
-    var overlay = document.getElementById('drawer-overlay');
-    var openBtn = document.getElementById('drawer-open');
-    var closeBtn = document.getElementById('drawer-close');
-
-    function openDrawer() {
-        drawer.setAttribute('aria-hidden', 'false');
-        overlay.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer() {
-        drawer.setAttribute('aria-hidden', 'true');
-        overlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    }
-
-    if (openBtn) openBtn.addEventListener('click', openDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (overlay) overlay.addEventListener('click', closeDrawer);
-
-    // ESC 关闭
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
-            closeDrawer();
-        }
-    });
+    var d=document.getElementById('drawer'),o=document.getElementById('drawer-overlay'),
+        ob=document.getElementById('drawer-open'),cb=document.getElementById('drawer-close');
+    function open(){d.setAttribute('aria-hidden','false');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+    function close(){d.setAttribute('aria-hidden','true');o.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+    if(ob)ob.addEventListener('click',open);if(cb)cb.addEventListener('click',close);
+    if(o)o.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.getAttribute('aria-hidden')==='false')close();});
 })();
 </script>

@@ -346,6 +346,13 @@ details.toc summary:hover {
     height: 56px;
 }
 
+.sidebar-avatar img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 48px;
+    height: 48px;
+}
+
 .sidebar-name {
     text-align: center;
     font-size: 1.05rem;
@@ -619,6 +626,12 @@ details.toc summary:hover {
     background: var(--code-bg);
     border-radius: 50%;
     padding: 8px;
+    flex-shrink: 0;
+}
+
+.drawer-profile img {
+    border-radius: 50%;
+    object-fit: cover;
     flex-shrink: 0;
 }
 

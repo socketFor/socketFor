@@ -4,10 +4,12 @@
     {{- /* 关于博主 */}}
     <div class="sidebar-card">
         <div class="sidebar-avatar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-            </svg>
+            {{- with resources.Get "head.jpg" }}
+                {{- $img := .Resize "96x96" }}
+                <img src="{{ $img.Permalink }}" alt="avatar" width="48" height="48">
+            {{- else }}
+                <img src="{{ "head.jpg" | absURL }}" alt="avatar" width="48" height="48">
+            {{- end }}
         </div>
         <h3 class="sidebar-name">{{ site.Params.author | default site.Title }}</h3>
         <p class="sidebar-bio">{{ site.Params.description | default "分享技术与思考" }}</p>

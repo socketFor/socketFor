@@ -7,6 +7,7 @@ theme = 'PaperMod'
 
 enableRobotsTXT = true
 paginate = 5
+ignoreLogs = ['warning-goldmark-raw-html']
 
 [params]
   defaultTheme = "auto"
@@ -14,9 +15,14 @@ paginate = 5
   keywords = ["blog", "技术", "编程", "软件工程", "中文博客"]
   ShowWordCount = true
 
-  [params.homeInfoParams]
-    Title = "你好，我是 Socket 👋"
-    Content = "路漫漫其修远兮，吾将上下而求索。"
+  [params.profileMode]
+    enabled = true
+    title = "你好，我是 Socket 👋"
+    subtitle = "路漫漫其修远兮，吾将上下而求索。"
+    imageUrl = "head.jpg"
+    imageWidth = 120
+    imageHeight = 120
+
 
   socialIcons = [
     { name = "github", url = "https://github.com/socketFor" },
