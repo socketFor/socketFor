@@ -1,18 +1,25 @@
-baseURL = 'https://<username>.github.io/my-blog/'
-locale = 'en-us'
-title = 'My Blog'
+baseURL = 'https://socketFor.github.io/my-blog/'
+defaultContentLanguage = 'zh'
+locale = 'zh-CN'
+hasCJKLanguage = true
+title = 'Socket Blog'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
 paginate = 5
 
 [params]
+  defaultTheme = "auto"
+  description = "Socket 的个人博客 - 技术、编程与思考"
+  keywords = ["blog", "技术", "编程", "软件工程", "中文博客"]
+  ShowWordCount = true
+
   [params.homeInfoParams]
-    Title = "Hello, I'm [Your Name]"
-    Content = "Welcome to my blog. I write about technology, programming, and software engineering."
+    Title = "你好，我是 Socket 👋"
+    Content = "路漫漫其修远兮，吾将上下而求索。"
 
   socialIcons = [
-    { name = "github", url = "https://github.com/<username>" },
+    { name = "github", url = "https://github.com/socketFor" },
   ]
 
   ShowReadingTime = true
@@ -23,18 +30,18 @@ paginate = 5
   ShowLastMod = false
 
 [[menu.main]]
-  name = "Posts"
+  name = "文章"
   url = "/posts/"
   weight = 10
 
 [[menu.main]]
-  name = "Tags"
+  name = "标签"
   url = "/tags/"
   weight = 20
 
 [[menu.main]]
-  name = "About"
-  url = "/about/"
+  name = "归档"
+  url = "/archives/"
   weight = 30
 
 [markup]

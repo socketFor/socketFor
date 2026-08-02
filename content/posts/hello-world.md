@@ -1,20 +1,20 @@
 ---
-title: "Hello World"
+title: "你好，世界"
 date: "2026-07-28T23:00:00+08:00"
 draft: false
-tags: ["introduction"]
+tags: ["随笔"]
 ---
 
-Welcome to my blog! This is my first post.
+欢迎来到我的博客！这是第一篇文章。
 
 <!--more-->
 
-## What to Expect
+## 这里会有什么
 
-I will be writing about:
+我会在这里分享：
 
-- **Technology**: Software development, tools, and practices
-- **Programming**: Code snippets, tutorials, and deep dives
-- **Engineering**: System design, architecture, and problem solving
+- **技术探索**：软件开发、工具链、最佳实践
+- **编程笔记**：代码片段、教程、深入分析
+- **工程思考**：系统设计、架构、问题解决
 
-Stay tuned for more content!
+敬请期待更多内容！

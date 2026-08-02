@@ -1,0 +1,497 @@
+/* ============================================
+   PaperMod 中文博客美化样式
+   ============================================ */
+
+/* ---- 1. CJK 字体栈 ---- */
+body {
+    font-family:
+        "PingFang SC",
+        "Microsoft YaHei",
+        "Noto Sans SC",
+        "Hiragino Sans GB",
+        "WenQuanYi Micro Hei",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 等宽字体 */
+code,
+pre code,
+kbd,
+samp {
+    font-family:
+        "JetBrains Mono",
+        "Fira Code",
+        "Cascadia Code",
+        "SF Mono",
+        "Consolas",
+        "Microsoft YaHei Mono",
+        "Courier New",
+        monospace !important;
+}
+
+/* ---- 2. 中文排版优化 ---- */
+.md-content p,
+.md-content li {
+    line-height: 1.85;
+    letter-spacing: 0.02em;
+}
+
+.md-content p:not(:last-child) {
+    margin-bottom: 1.2rem;
+}
+
+/* ---- 3. 全局平滑滚动 ---- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---- 4. 链接悬浮动画 ---- */
+.md-content a:not(.anchor) {
+    text-decoration: none !important;
+    background-image: linear-gradient(90deg, var(--primary), var(--primary));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1.5px;
+    transition: background-size 0.3s ease;
+    padding-bottom: 1px;
+}
+
+.md-content a:not(.anchor):hover {
+    background-size: 100% 1.5px;
+}
+
+/* ---- 5. 图片增强 ---- */
+.md-content img {
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1.5rem auto;
+}
+
+.md-content img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .md-content img {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .md-content img:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- 6. 代码块增强 ---- */
+div.highlight,
+pre {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.md-content pre code {
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 0.88em;
+    line-height: 1.7;
+}
+
+/* 代码块语言标签 */
+div.highlight::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 10px;
+    font-size: 0.72em;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 1;
+}
+
+/* 行内代码 */
+.post-content code:not(pre code) {
+    padding: 0.15em 0.4em;
+    font-size: 0.85em;
+    border-radius: 4px;
+    background: var(--code-bg);
+    color: var(--primary);
+    border: 1px solid var(--border);
+}
+
+/* ---- 7. 引用块美化 ---- */
+.md-content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.2rem;
+    border-inline-start: 4px solid var(--primary);
+    background: var(--code-bg);
+    border-radius: 0 8px 8px 0;
+}
+
+.md-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+[data-theme="dark"] .md-content blockquote {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ---- 8. 表格优化 ---- */
+.md-content table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.md-content table th {
+    background: var(--code-bg);
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.md-content table tr:nth-child(even) td {
+    background: rgba(128, 128, 128, 0.04);
+}
+
+.md-content table tr:hover td {
+    background: rgba(128, 128, 128, 0.08);
+}
+
+/* ---- 9. 滚动条美化 (Webkit) ---- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* ---- 10. 选中文字颜色 ---- */
+::selection {
+    background: rgba(100, 150, 255, 0.25);
+    color: inherit;
+}
+
+[data-theme="dark"] ::selection {
+    background: rgba(120, 160, 255, 0.3);
+}
+
+/* ---- 11. 文章卡片悬浮增强 ---- */
+.post-entry {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+[data-theme="dark"] .post-entry:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- 12. 标题锚点链接优化 ---- */
+.md-content h1:hover .anchor,
+.md-content h2:hover .anchor,
+.md-content h3:hover .anchor,
+.md-content h4:hover .anchor,
+.md-content h5:hover .anchor,
+.md-content h6:hover .anchor {
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.md-content .anchor:hover {
+    opacity: 1 !important;
+}
+
+/* ---- 13. 目录 (TOC) 优化 ---- */
+details.toc {
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+details.toc:hover {
+    border-color: var(--secondary);
+}
+
+details.toc summary {
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+details.toc summary:hover {
+    background: rgba(128, 128, 128, 0.05);
+}
+
+/* ---- 14. 导航栏底部装饰线 ---- */
+.header {
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---- 15. 返回顶部按钮优化 ---- */
+.top-link {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- 16. 标签徽章优化 ---- */
+.post-tags a {
+    border-radius: 20px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.post-tags a:hover {
+    background: var(--primary) !important;
+    color: var(--theme) !important;
+    border-color: var(--primary);
+}
+
+/* ---- 17. 分页按钮优化 ---- */
+.pagination a {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pagination a:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+/* ============================================
+   侧边栏 (Sidebar)
+   ============================================ */
+
+.site-wrapper {
+    display: flex;
+    max-width: calc(var(--main-width) + 300px + var(--gap) * 4);
+    margin: 0 auto;
+    padding: 0 var(--gap);
+    gap: var(--gap);
+}
+
+/* 侧边栏在桌面端显现在右侧 */
+.main {
+    flex: 1;
+    max-width: var(--main-width);
+    min-width: 0;
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    padding-top: var(--gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* 侧边栏卡片 */
+.sidebar-card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem;
+}
+
+/* 博主信息 */
+.sidebar-avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-avatar svg {
+    color: var(--secondary);
+    background: var(--code-bg);
+    border-radius: 50%;
+    padding: 12px;
+    width: 56px;
+    height: 56px;
+}
+
+.sidebar-name {
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.sidebar-bio {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--secondary);
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+}
+
+.sidebar-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.sidebar-social a {
+    display: inline-flex;
+    padding: 6px;
+    color: var(--secondary);
+    border-radius: 6px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-social a:hover {
+    color: var(--primary);
+    background: var(--code-bg);
+}
+
+/* 侧边栏标题 */
+.sidebar-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--primary);
+}
+
+/* 最近文章列表 */
+.sidebar-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.sidebar-posts li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 0;
+    color: var(--secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    gap: 0.5rem;
+    text-decoration: none !important;
+    background-image: none !important;
+}
+
+.sidebar-posts li a:hover,
+.sidebar-posts li a.active {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.sidebar-post-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-post-date {
+    font-size: 0.72rem;
+    color: var(--tertiary);
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* 标签云 */
+.sidebar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.sidebar-tag {
+    font-size: 0.78rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    background: var(--code-bg);
+    color: var(--secondary);
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none !important;
+    background-image: none !important;
+}
+
+.sidebar-tag:hover {
+    background: var(--primary);
+    color: var(--theme);
+}
+
+.sidebar-tag sup {
+    font-size: 0.7em;
+    opacity: 0.7;
+}
+
+/* 归档链接 */
+.sidebar-archive-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none !important;
+    background-image: none !important;
+    padding: 0.2rem 0;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar-archive-link:hover {
+    opacity: 0.7;
+}
+
+/* 移动端：侧边栏移到下方 */
+@media screen and (max-width: 1024px) {
+    .site-wrapper {
+        flex-direction: column;
+        max-width: calc(var(--main-width) + var(--gap) * 2);
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        padding-top: 0;
+    }
+}

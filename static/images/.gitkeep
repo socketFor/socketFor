@@ -1,0 +1,3 @@
+# 将全局共享图片放在此目录
+# 在文章中引用时使用: /images/your-image.png
+# 注意: baseURL 包含 /my-blog/ 子路径，相对路径会自动处理

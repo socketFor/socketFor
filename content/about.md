@@ -1,19 +1,21 @@
 ---
-title: "About"
+title: "关于"
 date: "2026-07-28T23:00:00+08:00"
 draft: false
 ---
 
-## About This Blog
+## 关于本博客
 
-This is my personal blog where I share thoughts, learnings, and projects.
+这里是我分享技术心得、学习笔记和项目经验的地方。
 
-Powered by [Hugo](https://gohugo.io/) and [PaperMod](https://github.com/adityatelange/hugo-PaperMod), deployed on [GitHub Pages](https://pages.github.com/).
+博客使用 [Hugo](https://gohugo.io/) 构建，主题基于 [PaperMod](https://github.com/adityatelange/hugo-PaperMod)，部署在 [GitHub Pages](https://pages.github.com/) 上。
 
-## About Me
+## 关于我
 
-[Write a short bio about yourself here.]
+一名热爱技术的开发者，专注于软件开发、系统架构和工程实践。
 
-## Contact
+喜欢探索新事物，相信技术可以让世界变得更好。
 
-- GitHub: [@username](https://github.com/username)
+## 联系方式
+
+- GitHub: [@socketFor](https://github.com/socketFor)
