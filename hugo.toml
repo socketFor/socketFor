@@ -9,6 +9,9 @@ enableRobotsTXT = true
 paginate = 5
 ignoreLogs = ['warning-goldmark-raw-html']
 
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
+
 [params]
   defaultTheme = "auto"
   description = "Socket 的个人博客 - 技术、编程与思考"
@@ -35,6 +38,15 @@ ignoreLogs = ['warning-goldmark-raw-html']
   ShowCodeCopyButtons = true
   ShowLastMod = false
 
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    threshold = 0.3
+    distance = 1000
+    ignoreLocation = true
+    minMatchCharLength = 1
+    keys = ["title", "content", "summary", "permalink"]
+
 [[menu.main]]
   name = "文章"
   url = "/posts/"
@@ -49,6 +61,12 @@ ignoreLogs = ['warning-goldmark-raw-html']
   name = "归档"
   url = "/archives/"
   weight = 30
+
+[[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 40
 
 [markup]
   [markup.highlight]
