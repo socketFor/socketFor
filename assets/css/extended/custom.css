@@ -90,11 +90,27 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ---- 6. 代码块增强 ---- */
+/* ---- 6. 代码块增强 — VS Code 暗色 ---- */
+
+:root {
+    --code-block-bg: #1E1E1E;
+}
+
+:root[data-theme="dark"] {
+    --code-block-bg: #1E1E1E;
+}
+
 div.highlight,
 pre {
     border-radius: 10px;
     overflow: hidden;
+    background: var(--code-block-bg) !important;
+}
+
+.post-content pre,
+.post-content pre code,
+.post-content div.highlight {
+    background: var(--code-block-bg) !important;
 }
 
 .md-content pre code {
