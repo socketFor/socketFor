@@ -45,7 +45,7 @@ ddns配置：[https://www.bilibili.com/video/BV1Av411p72v/?spm\_id\_from=333.337
 
 映射端口我们只需要进入光猫的管理地址，在高级设置里面找到端口映射
 
-![](images/4-1024x468.png)
+![](images/4.png)
 
 如果碰到连接失败要考虑
 

@@ -8,4 +8,4 @@ coverImage: "back.jpg"
 
 ## 电阻
 
-![](images/Snipaste_2025-02-22_13-01-50-1024x644.png)
+![](images/Snipaste_2025-02-22_13-01-50.png)

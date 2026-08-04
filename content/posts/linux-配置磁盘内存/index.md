@@ -23,4 +23,4 @@ mount -o remount -rw /var/snap/firefox/common/host-hunspell
 
 右键resize
 
-![](images/图片-1024x570.png)
+![](images/图片.png)

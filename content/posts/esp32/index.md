@@ -774,15 +774,15 @@ void lv_touch_init(void) {
 
 使用NXP的GUI-Guider-1.10.0-GA软件绘制页面
 
-![](images/图片-29-1024x469.png)
+![](images/图片-29.png)
 
-![](images/图片-30-1024x780.png)
+![](images/图片-30.png)
 
 ![](images/图片-31.png)
 
 ## lvgl增加帧率
 
-![](images/b8b8516a3ed622c19ef8f94d583d34313494372752493102-1024x725.png)
+![](images/b8b8516a3ed622c19ef8f94d583d34313494372752493102.png)
 
 ```
 LV_USE_PERF_MONITOR 设置为1开启帧率显示
@@ -897,7 +897,7 @@ static void espnow_recv_cb(const esp_now_recv_info_t *recv_info, const uint8_t *
 
 若要广播则需要将MAC地址设置为{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}
 
-![](images/图片-33-1024x587.png)
+![](images/图片-33.png)
 
 核心结构
 

@@ -9,4 +9,4 @@ categories:
 
 [tlv62569](images/tlv62569.pdf)[下载](images/tlv62569.pdf)
 
-![](images/Snipaste_2025-06-21_22-07-07-1024x442.png)
+![](images/Snipaste_2025-06-21_22-07-07.png)

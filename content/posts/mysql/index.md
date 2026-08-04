@@ -303,7 +303,7 @@ select * from employee where idcard like '%X';
 
 ##### 查询条件
 
-![](images/Snipaste_2024-07-15_16-47-51-1024x324.png)
+![](images/Snipaste_2024-07-15_16-47-51.png)
 
 #### 总和查询（聚合函数）：
 

@@ -9,7 +9,7 @@ categories:
 
 2.改名
 
-![](images/Snipaste_2025-06-21_21-58-26-1024x474.png)
+![](images/Snipaste_2025-06-21_21-58-26.png)
 
 3.运行程序
 

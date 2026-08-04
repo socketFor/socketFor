@@ -42,4 +42,4 @@ coverImage: "20220111_d8e265421577c.webp"
 
 但是高配置的云服务器价格enmmm
 
-![](images/Snipaste_2024-07-12_14-11-04-1024x450.png)
+![](images/Snipaste_2024-07-12_14-11-04.png)

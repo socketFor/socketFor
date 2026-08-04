@@ -133,7 +133,7 @@ tags:
 
 ### Linux命令大全
 
-[![](images/Snipaste_2024-10-31_20-25-40-1024x527.png)](https://www.runoob.com/linux/linux-command-manual.html)
+[![](images/Snipaste_2024-10-31_20-25-40.png)](https://www.runoob.com/linux/linux-command-manual.html)
 
 [https://www.runoob.com/linux/linux-command-manual.html](https://www.runoob.com/linux/linux-command-manual.html)
 

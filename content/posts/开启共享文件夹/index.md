@@ -7,15 +7,15 @@ categories:
 
 打开网络共享中心的高级共享设置勾选上以下选项
 
-![](images/Snipaste_2025-06-16_17-00-21-1024x494.png)
+![](images/Snipaste_2025-06-16_17-00-21.png)
 
-![](images/Snipaste_2025-06-16_16-59-56-1024x494.png)
+![](images/Snipaste_2025-06-16_16-59-56.png)
 
 找一个文件夹点击共享
 
-![](images/Snipaste_2025-06-16_17-00-59-1-1024x524.png)
+![](images/Snipaste_2025-06-16_17-00-59-1.png)
 
-![](images/Snipaste_2025-06-16_17-01-39-1-1024x524.png)
+![](images/Snipaste_2025-06-16_17-01-39-1.png)
 
 防火墙开放端口
 
@@ -37,13 +37,13 @@ New-NetFirewallRule -DisplayName "Allow SMB" -Direction Inbound -Protocol TCP -L
 
 第二步：在“本地策略->安全选项” 中查找 “网络访问：本地账户的共享和模型”，选择经典。
 
-![](images/Snipaste_2025-07-01_09-33-59-1024x617.png)
+![](images/Snipaste_2025-07-01_09-33-59.png)
 
 对公共文件夹设置everyone
 
 ![](images/Snipaste_2025-07-01_09-41-09.png)
 
-![](images/Snipaste_2025-07-01_09-43-59-1024x528.png)
+![](images/Snipaste_2025-07-01_09-43-59.png)
 
 ![](images/Snipaste_2025-07-01_09-44-31.png)
 
@@ -55,6 +55,6 @@ New-NetFirewallRule -DisplayName "Allow SMB" -Direction Inbound -Protocol TCP -L
 
 单个文件夹单独权限-取消继承
 
-![](images/Snipaste_2025-07-01_09-49-37-1024x546.png)
+![](images/Snipaste_2025-07-01_09-49-37.png)
 
 个性化->主题->桌面图标设置

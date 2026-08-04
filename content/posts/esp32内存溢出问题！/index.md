@@ -11,25 +11,25 @@ categories:
 idf.py menuconfig
 ```
 
-![](images/图片-1024x456.png)
+![](images/图片.png)
 
-![](images/图片-1-1024x450.png)
+![](images/图片-1.png)
 
-![](images/图片-2-1024x455.png)
+![](images/图片-2.png)
 
-![](images/图片-3-1024x392.png)
+![](images/图片-3.png)
 
 LVG配置
 
-![](images/图片-4-1024x437.png)
+![](images/图片-4.png)
 
 编译等级设置
 
-![](images/图片-5-1024x460.png)
+![](images/图片-5.png)
 
 配置scv分配flash
 
-![](images/图片-6-1024x464.png)
+![](images/图片-6.png)
 
 ```
 # Name,   Type, SubType, Offset,  Size, Flags
@@ -115,4 +115,4 @@ xtensa-esp32s3-elf-nm -S --size-sort -C ./build/esp-idf/UI_custom/libUI_custom.a
 
 然后进行修改
 
-![](images/图片-8-1024x544.png)
+![](images/图片-8.png)

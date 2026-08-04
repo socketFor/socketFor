@@ -41,7 +41,7 @@ mkdir djangotutorial
 django-admin startproject mysite djangotutorial
 ```
 
-![](images/图片-1-1024x354.png)
+![](images/图片-1.png)
 
 ## 开发服务器
 
@@ -201,7 +201,7 @@ class Student(models.Model):
 
 选择是否到admin中管理
 
-![](images/图片-7-1024x547.png)
+![](images/图片-7.png)
 
 ## 设置语言时区
 
@@ -292,11 +292,11 @@ admin.site.register(Question)
 
 ## 目录结构
 
-![](images/图片-3-1024x291.png)
+![](images/图片-3.png)
 
-![](images/图片-4-1024x440.png)
+![](images/图片-4.png)
 
-![](images/图片-5-1024x307.png)
+![](images/图片-5.png)
 
 ![](images/图片-6.png)
 
@@ -306,23 +306,23 @@ admin.site.register(Question)
 
 ### method
 
-![](images/图片-9-1024x249.png)
+![](images/图片-9.png)
 
 ### Get、Post
 
-![](images/图片-10-1024x334.png)
+![](images/图片-10.png)
 
 ### session
 
 ![](images/图片-11.png)
 
-![](images/图片-12-1024x326.png)
+![](images/图片-12.png)
 
 ## 注意
 
 {%url%}
 
-![](images/图片-13-1024x89.png)
+![](images/图片-13.png)
 
 name非常重要
 

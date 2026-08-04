@@ -5,9 +5,9 @@ categories:
   - "单片机"
 ---
 
-![](images/2-1024x375.png)
+![](images/2.png)
 
-![](images/Snipaste_2025-06-28_14-51-40-1024x516.png)
+![](images/Snipaste_2025-06-28_14-51-40.png)
 
 &取地址 、（char\*,short\*,int\*,long\*）为数据类型指针、(\*p,\*a,...)为解引用指针-例如：\*p p为指针类型变量,\*p指读取存在指针类型变量里的地址，那个地址里的值。
 
@@ -21,21 +21,21 @@ categories:
 
 16个二进制=64位
 
-![](images/3-1024x338.png)
+![](images/3.png)
 
 结构体指针用->指向成员变量=（\*结构体指针用）.指向成员变量
 
 结构体变量用. 指向成员变量
 
-![](images/Snipaste_2025-06-28_14-58-41-1-1024x558.png)
+![](images/Snipaste_2025-06-28_14-58-41-1.png)
 
-![](images/9-1024x480.png)
+![](images/9.png)
 
 一个指针数组存放了每一个数组的首地址
 
-![](images/7-1024x350.png)
+![](images/7.png)
 
-![](images/Snipaste_2025-04-09_10-20-03-1024x506.png)
+![](images/Snipaste_2025-04-09_10-20-03.png)
 
 函数类型指针 void (\*p)(参数);
 
@@ -43,11 +43,11 @@ categories:
 
 (\*void(\*)()0)()在0处的函数类型指针
 
-![](images/Snipaste_2025-04-09_10-52-46-1024x525.png)
+![](images/Snipaste_2025-04-09_10-52-46.png)
 
-![](images/Snipaste_2025-04-09_11-16-15-1024x365.png)
+![](images/Snipaste_2025-04-09_11-16-15.png)
 
-![](images/Snipaste_2025-04-09_11-30-18-1024x432.png)
+![](images/Snipaste_2025-04-09_11-30-18.png)
 
 ![](images/Snipaste_2025-04-09_11-33-30.png)
 
@@ -143,9 +143,9 @@ int main(void)
 
 ```
 
-![](images/Snipaste_2025-06-29_09-11-00-1024x393.png)
+![](images/Snipaste_2025-06-29_09-11-00.png)
 
-![](images/Snipaste_2025-06-29_09-16-26-1024x525.png)
+![](images/Snipaste_2025-06-29_09-16-26.png)
 
 ### 尾插入式
 
@@ -232,7 +232,7 @@ int main(void)
 
 #### 快速查询
 
-![](images/Snipaste_2025-06-29_14-39-55-1024x460.png)
+![](images/Snipaste_2025-06-29_14-39-55.png)
 
 ```
 #include<stdio.h>
@@ -329,7 +329,7 @@ int main2(void) {
 }
 ```
 
-![](images/Snipaste_2025-06-29_14-42-12-1024x432.png)
+![](images/Snipaste_2025-06-29_14-42-12.png)
 
 ```
 #include<stdio.h>
