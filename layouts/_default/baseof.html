@@ -14,6 +14,24 @@
 
 <head>
     {{- partial "head.html" . }}
+    {{- if .IsHome }}
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var forceIntro = new URLSearchParams(window.location.search).get('intro') === '1';
+            var introSeen = false;
+
+            try { introSeen = sessionStorage.getItem('socket-intro-seen') === '1'; } catch (error) { }
+
+            if (!reducedMotion && (forceIntro || !introSeen)) {
+                root.classList.add('intro-pending');
+            } else {
+                root.classList.add('intro-skipped');
+            }
+        }());
+    </script>
+    {{- end }}
 </head>
 
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
@@ -21,6 +39,9 @@
 {{- else }}
 <body id="top">
 {{- end }}
+    {{- if .IsHome }}
+    {{- partial "site-intro.html" . -}}
+    {{- end }}
     {{ partialCached "header.html" . .Page -}}
     {{- partial "mobile-drawer.html" . -}}
     <div class="site-wrapper">

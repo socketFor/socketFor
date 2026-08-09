@@ -1,0 +1,166 @@
+<div class="reading-progress" id="reading-progress" aria-hidden="true"><span></span></div>
+
+<div class="image-lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-label="图片预览" hidden>
+    <button class="image-lightbox__close" type="button" aria-label="关闭图片预览" title="关闭">&times;</button>
+    <div class="image-lightbox__stage">
+        <img class="image-lightbox__image" alt="">
+    </div>
+    <p class="image-lightbox__caption" hidden></p>
+</div>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var header = document.querySelector('.header');
+        var progress = document.getElementById('reading-progress');
+        var progressFill = progress ? progress.querySelector('span') : null;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var ticking = false;
+        var wasAwayFromTop = false;
+        var topArrivalTimer = 0;
+
+        if (document.querySelector('.post-single')) {
+            root.classList.add('has-reading-progress');
+        }
+
+        function updateScrollState() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var scrollRange = document.documentElement.scrollHeight - window.innerHeight;
+
+            if (scrollTop > Math.max(80, window.innerHeight * 0.22)) {
+                wasAwayFromTop = true;
+            } else if (wasAwayFromTop && scrollTop <= 8) {
+                wasAwayFromTop = false;
+                if (!reducedMotion) {
+                    window.clearTimeout(topArrivalTimer);
+                    document.body.classList.remove('top-arrival');
+                    void document.body.offsetWidth;
+                    document.body.classList.add('top-arrival');
+                    topArrivalTimer = window.setTimeout(function () {
+                        document.body.classList.remove('top-arrival');
+                    }, 720);
+                }
+            }
+
+            if (header) { header.classList.toggle('is-scrolled', scrollTop > 8); }
+            if (progressFill) {
+                progressFill.style.setProperty('--reading-progress', scrollRange > 0 ? Math.min(scrollTop / scrollRange, 1) : 0);
+            }
+            ticking = false;
+        }
+
+        function requestScrollUpdate() {
+            if (ticking) { return; }
+            ticking = true;
+            window.requestAnimationFrame(updateScrollState);
+        }
+
+        updateScrollState();
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+        window.addEventListener('resize', requestScrollUpdate);
+        window.addEventListener('pageshow', requestScrollUpdate);
+
+        var revealTargets = document.querySelectorAll([
+            '.profile_inner > *',
+            '.post-entry',
+            '.sidebar-card',
+            '.archive-entry',
+            '.terms-tags li',
+            '.post-header > *',
+            '.post-content > h1',
+            '.post-content > h2',
+            '.post-content > h3',
+            '.post-content > p',
+            '.post-content > figure',
+            '.post-content > blockquote',
+            '.post-content > pre',
+            '.post-content > .highlight',
+            '.post-content > table',
+            '.post-footer'
+        ].join(','));
+
+        if (!reducedMotion && 'IntersectionObserver' in window) {
+            root.classList.add('motion-enabled');
+            var revealObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) { return; }
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                });
+            }, { rootMargin: '0px 0px -7% 0px', threshold: 0.05 });
+
+            revealTargets.forEach(function (element, index) {
+                element.classList.add('interactive-reveal');
+                element.style.setProperty('--reveal-delay', ((index % 5) * 45) + 'ms');
+                revealObserver.observe(element);
+            });
+        }
+
+        var lightbox = document.getElementById('image-lightbox');
+        if (!lightbox) { return; }
+
+        var lightboxImage = lightbox.querySelector('.image-lightbox__image');
+        var lightboxCaption = lightbox.querySelector('.image-lightbox__caption');
+        var closeButton = lightbox.querySelector('.image-lightbox__close');
+        var lastTrigger = null;
+        var closeTimer = 0;
+
+        function openLightbox(source) {
+            var caption = source.closest('figure')?.querySelector('figcaption')?.textContent.trim() || source.alt || '';
+            window.clearTimeout(closeTimer);
+            lastTrigger = source;
+            lightboxImage.src = source.currentSrc || source.src;
+            lightboxImage.alt = source.alt || '文章图片';
+            lightboxCaption.textContent = caption;
+            lightboxCaption.hidden = !caption;
+            lightbox.hidden = false;
+            document.body.classList.add('image-lightbox-open');
+
+            window.requestAnimationFrame(function () {
+                lightbox.classList.add('is-open');
+                closeButton.focus({ preventScroll: true });
+            });
+        }
+
+        function closeLightbox() {
+            if (lightbox.hidden) { return; }
+            lightbox.classList.remove('is-open');
+            document.body.classList.remove('image-lightbox-open');
+            closeTimer = window.setTimeout(function () {
+                lightbox.hidden = true;
+                lightboxImage.removeAttribute('src');
+                if (lastTrigger) { lastTrigger.focus({ preventScroll: true }); }
+            }, reducedMotion ? 0 : 280);
+        }
+
+        document.querySelectorAll('.post-content img').forEach(function (image) {
+            if (image.closest('a') || image.classList.contains('no-lightbox')) { return; }
+            image.classList.add('zoomable-image');
+            image.setAttribute('tabindex', '0');
+            image.setAttribute('role', 'button');
+            image.setAttribute('aria-label', '查看大图' + (image.alt ? '：' + image.alt : ''));
+            image.addEventListener('click', function () { openLightbox(image); });
+            image.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openLightbox(image);
+                }
+            });
+        });
+
+        closeButton.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function (event) {
+            if (event.target === lightbox || event.target.classList.contains('image-lightbox__stage')) {
+                closeLightbox();
+            }
+        });
+        document.addEventListener('keydown', function (event) {
+            if (lightbox.hidden) { return; }
+            if (event.key === 'Escape') { closeLightbox(); }
+            if (event.key === 'Tab') {
+                event.preventDefault();
+                closeButton.focus();
+            }
+        });
+    }());
+</script>

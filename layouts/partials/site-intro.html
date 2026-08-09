@@ -1,0 +1,71 @@
+<div class="site-intro" id="site-intro" role="dialog" aria-modal="true" aria-label="Socket Blog 开场动画">
+    <div class="intro-panel intro-panel--top" aria-hidden="true"></div>
+    <div class="intro-panel intro-panel--bottom" aria-hidden="true"></div>
+
+    <header class="intro-topline">
+        <span class="intro-header-note">个人博客</span>
+        <a class="intro-wordmark" href="{{ "" | absLangURL }}" tabindex="-1" aria-hidden="true">
+            <span class="intro-brand-dot"></span>
+            <span>Socket Blog</span>
+        </a>
+        <button class="intro-skip" id="intro-skip" type="button">
+            <span>跳过</span>
+            <span aria-hidden="true">&#8594;</span>
+        </button>
+    </header>
+
+    <main class="intro-stage">
+        <div class="intro-signature">
+            <span class="intro-avatar-ring" aria-hidden="true"></span>
+            <img src="{{ "head.jpg" | absURL }}" alt="Socket 的头像" width="120" height="120">
+        </div>
+
+        <div class="intro-title" aria-label="你好，我是 Socket">
+            <span class="intro-title-line">
+                <span>你好，我是 Socket <span class="intro-wave" aria-hidden="true">&#128075;</span></span>
+            </span>
+        </div>
+
+        <p class="intro-tagline">路漫漫其修远兮，吾将上下而求索。</p>
+
+        <div class="intro-loader" aria-hidden="true">
+            <div class="intro-loader-track"><span></span></div>
+        </div>
+    </main>
+</div>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var intro = document.getElementById('site-intro');
+        var skipButton = document.getElementById('intro-skip');
+
+        if (!intro || !root.classList.contains('intro-pending')) {
+            if (intro) { intro.hidden = true; }
+            return;
+        }
+
+        var isClosing = false;
+        var timer = window.setTimeout(closeIntro, 3000);
+
+        function closeIntro() {
+            if (isClosing) { return; }
+            isClosing = true;
+            window.clearTimeout(timer);
+            intro.classList.add('is-leaving');
+            root.classList.add('intro-revealing');
+
+            window.setTimeout(function () {
+                try { sessionStorage.setItem('socket-intro-seen', '1'); } catch (error) { }
+                intro.hidden = true;
+                root.classList.remove('intro-pending', 'intro-revealing');
+                root.classList.add('intro-complete');
+            }, 1060);
+        }
+
+        skipButton.addEventListener('click', closeIntro);
+        window.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') { closeIntro(); }
+        }, { once: true });
+    }());
+</script>
