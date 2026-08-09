@@ -6,12 +6,11 @@ title = 'Socket Blog'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
+ignoreLogs = ['warning-goldmark-raw-html']
 
 
 [pagination]
   pagerSize = 10
-  
-ignoreLogs = ['warning-goldmark-raw-html']
 
 [outputs]
   home = ["HTML", "JSON", "RSS"]
